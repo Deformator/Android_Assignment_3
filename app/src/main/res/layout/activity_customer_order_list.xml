@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.andriidamm.andriidamm_mapd711_onlinepurchase.CustomerOrderListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewYourOrders"
+            style="@style/Title"
+            android:layout_marginLeft="90dp"
+            android:text="@string/textViewYour_orders" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            style="@style/ButtonLogout"
+            android:text="@string/buttonLogout"
+            android:onClick="onLogoutPressed"/>
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/listViewOrdersCustomer"
+        style="@style/ListView" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonPlaceAnOrder"
+        style="@style/ButtonReg"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onPlaceAnOrderPressed"
+        android:text="@string/buttonPlace_a_new_order" />
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">AndriiDamm_MAPD711_OnlinePurchase</string>
+    <string name="customer">Customer</string>
+    <string name="clerk">Clerk</string>
+    <string name="loginLabel">Login as</string>
+    <string name="usernameHint">UserName</string>
+    <string name="passwordHint">Password</string>
+    <string name="buttonLogin">Sign In</string>
+    <string name="buttonRegistration">Sign Up</string>
+    <string name="labelRegistration">Registration</string>
+    <string name="textViewUsername">UserName:</string>
+    <string name="textViewPassword">Password:</string>
+    <string name="textViewFirst_name">First Name:</string>
+    <string name="textViewLast_name">Last Name:</string>
+    <string name="textViewCity">City:</string>
+    <string name="textViewPostal_code">Postal Code:</string>
+    <string name="buttonSubmit">Submit</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="textViewYour_orders">Your Orders</string>
+    <string name="buttonPlace_a_new_order">Place a new order</string>
+    <string name="textViewNew_order">New Order</string>
+    <string name="buttonLogout">Logout</string>
+
+    <string name="product_prompt">Choose a product type</string>
+
+    <string-array name="product_type_arrays">
+        <item>Malaysia</item>
+        <item>United States</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
+</resources>

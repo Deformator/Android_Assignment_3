@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.andriidamm.andriidamm_mapd711_onlinepurchase.RegistrationActivity">
+
+    <TextView
+        android:id="@+id/textViewRegistration"
+        style="@style/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/labelRegistration" />
+
+    <LinearLayout
+        style="@style/RegistrationRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewUserName"
+            style="@style/TextViewReg"
+            android:text="@string/textViewUsername" />
+
+        <EditText
+            android:id="@+id/editTextUserName"
+            style="@style/EditTextReg"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/RegistrationRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewPassword"
+            style="@style/TextViewReg"
+            android:text="@string/textViewPassword" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            style="@style/EditTextReg"
+            android:ems="11"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/RegistrationRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewFirstName"
+            style="@style/TextViewReg"
+            android:text="@string/textViewFirst_name" />
+
+        <EditText
+            android:id="@+id/editTextFirstName"
+            style="@style/EditTextReg"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/RegistrationRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewLastName"
+            style="@style/TextViewReg"
+            android:text="@string/textViewLast_name" />
+
+        <EditText
+            android:id="@+id/editTextLastName"
+            style="@style/EditTextReg"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/RegistrationRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewCity"
+            style="@style/TextViewReg"
+            android:text="@string/textViewCity" />
+
+        <EditText
+            android:id="@+id/editTextCity"
+            style="@style/EditTextReg"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/RegistrationRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewPostalCode"
+            style="@style/TextViewReg"
+            android:text="@string/textViewPostal_code" />
+
+        <EditText
+            android:id="@+id/editTextPostalCode"
+            style="@style/EditTextReg"
+            android:inputType="textPostalAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonSubmit"
+            style="@style/ButtonReg"
+            android:onClick="onSubmitPressed"
+            android:text="@string/buttonSubmit" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            style="@style/ButtonReg"
+            android:onClick="onCancelPressed"
+            android:text="@string/buttonCancel" />
+    </LinearLayout>
+
+
+</LinearLayout>

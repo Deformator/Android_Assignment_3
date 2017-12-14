@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.andriidamm.andriidamm_mapd711_onlinepurchase.LoginActivity"
+    style="@style/Background">
+
+    <TextView
+        android:id="@+id/textViewMainLabel"
+        android:text="@string/loginLabel"
+        android:paddingTop="70dp"
+        style="@style/Title"/>
+
+    <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/segmentedControl"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="2dp"
+        segmentedgroup:sc_corner_radius="10dp"
+        style="@style/SegmentedControl">
+
+        <RadioButton
+            android:id="@+id/buttonCustomer"
+            android:checked="true"
+            android:text="@string/customer"
+            style="@style/RadioButtonSC"/>
+
+        <RadioButton
+            android:id="@+id/buttonClerk"
+            android:text="@string/clerk"
+            style="@style/RadioButtonSC"/>
+
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:hint="@string/usernameHint"
+        android:inputType="textPersonName"
+        android:ems="12"/>
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="@string/passwordHint"
+        android:inputType="textPassword"
+        android:ems="12"/>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:onClick="onLoginPressed"
+        android:text="@string/buttonLogin" />
+
+    <Button
+        android:id="@+id/buttonRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onRegistrationPressed"
+        android:text="@string/buttonRegistration" />
+
+</LinearLayout>

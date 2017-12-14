@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radio_button_sc">30sp</dimen>
+    <dimen name="main_screen_title">40sp</dimen>
+    <dimen name="product_name_label">25sp</dimen>
+    <dimen name="product_quantity_label">25sp</dimen>
+    <dimen name="product_price_label">25sp</dimen>
+    <dimen name="category_name_label">18sp</dimen>
+</resources>
