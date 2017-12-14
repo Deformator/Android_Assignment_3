@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.nfc.Tag;
 import android.util.Log;
 
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.ClerkModel;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.CustomerModel;
 
 import java.util.Objects;
@@ -130,6 +131,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    //add new Clerk ot DB
+    public void addClerk(ClerkModel customer) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_EMPLOYEE_USERNAME, customer.getUserName());
+        values.put(KEY_EMPLOYEE_PASSWORD, customer.getPassword());
+        values.put(KEY_EMPLOYEE_FIRST_NAME, customer.getFirstName());
+        values.put(KEY_EMPLOYEE_LAST_NAME, customer.getLastName());
+
+        db.insert(TABLE_CLERKS, null, values);
+        db.close();
+    }
+
     //check presence of users name in DB
     public Boolean isUserExist(String userName) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -169,6 +184,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         };
 
         Cursor cursor = db.query(TABLE_CUSTOMERS, projection, KEY_CUSTOMER_USER_NAME + " =? AND " + KEY_CUSTOMER_PASSWORD + " =?", new String[]{userName,password}, null, null, null);
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            isPresent = true;
+            cursor.close();
+        }
+        cursor.close();
+        return isPresent;
+    }
+
+    public Boolean isClerkCredsCorrect(String userName, String password){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Boolean isPresent = false;
+
+        String[] projection = {
+                KEY_EMPLOYEE_USERNAME,
+                KEY_EMPLOYEE_PASSWORD
+        };
+
+        Cursor cursor = db.query(TABLE_CLERKS, projection, KEY_EMPLOYEE_USERNAME + " =? AND " + KEY_EMPLOYEE_PASSWORD + " =?", new String[]{userName,password}, null, null, null);
 
         if ((cursor != null) && (cursor.getCount() > 0)) {
             isPresent = true;

@@ -20,6 +20,13 @@ public class ClerkModel {
         this.lastName = lastName;
     }
 
+    public ClerkModel(String userName, String password, String firstName, String lastName) {
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getEmployeeId() {
         return employeeId;
     }
