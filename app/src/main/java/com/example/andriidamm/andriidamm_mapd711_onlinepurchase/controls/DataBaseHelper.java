@@ -156,5 +156,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return isPresent;
     }
+
+    //check customer username and password pair in DB
+    public Boolean isCustomerCredsCorrect(String userName, String password){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Boolean isPresent = false;
+
+        String[] projection = {
+                KEY_CUSTOMER_USER_NAME,
+                KEY_CUSTOMER_PASSWORD
+        };
+
+        Cursor cursor = db.query(TABLE_CUSTOMERS, projection, KEY_CUSTOMER_USER_NAME + " =? AND " + KEY_CUSTOMER_PASSWORD + " =?", new String[]{userName,password}, null, null, null);
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            isPresent = true;
+            cursor.close();
+        }
+        cursor.close();
+        return isPresent;
+    }
 }
 

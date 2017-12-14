@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.DataBaseHelper;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.CustomerModel;
@@ -53,36 +54,16 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this);
-        builder.setTitle("Error")
-                .setMessage("All fields are required")
-                .setCancelable(false)
-                .setNegativeButton("Ok",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
-        AlertDialog alert = builder.create();
-
         if (userName.length() == 0 || password.length() == 0 || firstName.length() == 0 || lastName.length() == 0 || city.length() == 0 || postalCode.length() == 0) {
-            alert.show();
+            Toast.makeText(getApplicationContext(), "All fields are required",
+                    Toast.LENGTH_LONG).show();
 
         } else {
 
+
            if (db.isUserExist(userName)) {
-               AlertDialog.Builder builder2 = new AlertDialog.Builder(RegistrationActivity.this);
-               builder2.setTitle("Error")
-                       .setMessage("Customer name is already exist, please chose another username")
-                       .setCancelable(false)
-                       .setNegativeButton("Ok",
-                               new DialogInterface.OnClickListener() {
-                                   public void onClick(DialogInterface dialog, int id) {
-                                       dialog.cancel();
-                                   }
-                               });
-               AlertDialog alert2 = builder2.create();
-               alert2.show();
+               Toast.makeText(getApplicationContext(), "Customer name is already exist, please chose another username",
+                       Toast.LENGTH_LONG).show();
            } else {
                customer.setUserName(userName);
                customer.setPassword(password);
