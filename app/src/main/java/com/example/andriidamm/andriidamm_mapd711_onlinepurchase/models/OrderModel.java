@@ -11,15 +11,30 @@ public class OrderModel {
     private int productId;
     private int employeeId;
     private String orderDate;
+    private int price;
     private String status;
 
-    public OrderModel(int orderId, int customerId, int productId, int employeeId, String orderDate, String status) {
+    public OrderModel(int orderId, int customerId, int productId, int employeeId, String orderDate, int price, String status) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.productId = productId;
         this.employeeId = employeeId;
         this.orderDate = orderDate;
+        this.price = price;
         this.status = status;
+    }
+
+    public OrderModel(int orderId, int price) {
+        this.orderId = orderId;
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getOrderId() {

@@ -26,8 +26,8 @@
     </LinearLayout>
 
 
-    <ListView
-        android:id="@+id/listViewOrdersCustomer"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewOrdersCustomer"
         style="@style/ListView" />
 
     <LinearLayout

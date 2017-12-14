@@ -1,71 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
 
     <TextView
-        android:id="@+id/textViewProductName"
-        style="@style/ProductNameLabel"
+        android:id="@+id/textViewOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="Playstation 4" />
+        android:layout_weight="1"
+        android:text="Order#" />
 
     <TextView
-        android:id="@+id/textViewProductCategory"
-        style="@style/CategoryNameLabel"
+        android:id="@+id/textViewOrderNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewProductName"
-        android:layout_alignStart="@+id/textViewProductName"
-        android:layout_below="@+id/textViewProductName"
-        android:text="Consoles" />
+        android:layout_weight="1"
+        android:text="14" />
 
     <TextView
-        android:id="@+id/textViewProductQuantity"
-        style="@style/ProductQuantityLabel"
+        android:id="@+id/textViewPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewProductName"
-        android:layout_alignBottom="@+id/textViewProductName"
-        android:layout_toEndOf="@+id/textViewProductPrice"
-        android:layout_toRightOf="@+id/textViewProductPrice"
-        android:text="1" />
+        android:layout_weight="1"
+        android:text="Price" />
 
     <TextView
-        android:id="@+id/textViewProductPrice"
-        style="@style/ProductPriceLabel"
+        android:id="@+id/textViewPriceNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewProductCategory"
-        android:layout_alignLeft="@+id/textViewQuantityLabel"
-        android:layout_alignStart="@+id/textViewQuantityLabel"
-        android:text="400$" />
-
-    <TextView
-        android:id="@+id/textViewQuantityLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewProductQuantity"
-        android:layout_alignBottom="@+id/textViewProductQuantity"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_toLeftOf="@+id/buttonEdit"
-        android:layout_toStartOf="@+id/buttonEdit"
-        android:text="Quantity:" />
+        android:layout_weight="1"
+        android:text="1200" />
 
     <Button
-        android:id="@+id/buttonEdit"
+        android:id="@+id/buttonEditOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textViewQuantityLabel"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
+        android:layout_weight="1"
         android:text="Edit" />
-
-</RelativeLayout>
+</LinearLayout>
