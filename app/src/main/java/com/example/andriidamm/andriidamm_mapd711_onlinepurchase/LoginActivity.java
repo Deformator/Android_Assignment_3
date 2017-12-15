@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.DataBaseHelper;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.ClerkModel;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.ProductModel;
 
 public class LoginActivity extends AppCompatActivity {
     DataBaseHelper db;
@@ -23,8 +24,12 @@ public class LoginActivity extends AppCompatActivity {
         db = new DataBaseHelper(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //static clerk
         ClerkModel clerk = new ClerkModel("Alfred", "Batman", "Alfred", "Pennyworth");
 //        db.addClerk(clerk);
+
+//        db.addProduct(new ProductModel("banana", "Banana", "Fruit", 20, 0));
 
 
     }

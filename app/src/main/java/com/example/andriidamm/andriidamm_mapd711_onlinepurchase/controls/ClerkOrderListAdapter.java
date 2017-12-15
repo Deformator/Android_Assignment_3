@@ -28,12 +28,12 @@ public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAd
     }
 
     @Override
-    public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.clerk_cell, null);
+    public ClerkOrderListAdapter.OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.clerk_cell, parent, false);
 
         return new ClerkOrderListAdapter.OrderViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(OrderViewHolder holder, int position) {
@@ -51,7 +51,7 @@ public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAd
     class OrderViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewOrder, textViewOrderNumber, textViewPrice, textViewPriceNumber;
-        Button buttonEditOrder, buttonTakeOrder;
+        Button buttonTakeOrder;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
@@ -60,8 +60,7 @@ public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAd
             textViewOrderNumber = itemView.findViewById(R.id.textViewOrderNumber);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             textViewPriceNumber = itemView.findViewById(R.id.textViewPriceNumber);
-            buttonEditOrder = itemView.findViewById(R.id.buttonEditOrder);
-            buttonTakeOrder = itemView.findViewById(R.id.buttonTakeOrder);
+            buttonTakeOrder = itemView.findViewById(R.id.buttonLookOrder);
 
         }
     }

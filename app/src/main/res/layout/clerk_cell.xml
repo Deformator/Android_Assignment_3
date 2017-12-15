@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:weightSum="8">
 
@@ -20,53 +20,47 @@
                 android:id="@+id/textViewOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="2.5"
                 android:paddingLeft="10dp"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:text="Order#" />
 
             <TextView
                 android:id="@+id/textViewOrderNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:text="14"
-                android:paddingLeft="5dp"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 />
 
             <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1.7"
                 android:text="Price:"
-                android:paddingLeft="5dp"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 />
 
             <TextView
                 android:id="@+id/textViewPriceNumber"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1200"
-                android:textStyle="bold" />
+                android:layout_weight="2"
+                android:text="12000"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
 
             <Button
-                android:id="@+id/buttonEditOrder"
+                android:id="@+id/buttonLookOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:paddingLeft="10dp"
-                android:text="Edit" />
-
-            <Button
-                android:id="@+id/buttonTakeOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Take" />
+                android:layout_weight="2.5"
+                android:text="Look"
+                android:textSize="15sp"
+                android:background = "@drawable/rounded_button"
+                />
 
         </LinearLayout>
 

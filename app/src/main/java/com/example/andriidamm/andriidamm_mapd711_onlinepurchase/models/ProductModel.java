@@ -11,6 +11,7 @@ public class ProductModel {
     private int price;
     private int quantity;
     private String category;
+    private String image;
 
     public ProductModel(int productId, String productName, int price, int quantity, String category) {
         this.productId = productId;
@@ -18,6 +19,28 @@ public class ProductModel {
         this.price = price;
         this.quantity = quantity;
         this.category = category;
+    }
+
+    public ProductModel(String productName, String category, int price) {
+        this.productName = productName;
+        this.category = category;
+        this.price = price;
+    }
+
+    public ProductModel(String image, String productName, String category, int price, int quantity) {
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+        this.category = category;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getProductId() {

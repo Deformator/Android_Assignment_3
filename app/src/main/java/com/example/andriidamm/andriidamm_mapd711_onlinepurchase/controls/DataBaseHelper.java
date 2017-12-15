@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.ClerkModel;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.CustomerModel;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.ProductModel;
 
 import java.util.Objects;
 
@@ -46,6 +47,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     //product table and columns
     private static final String TABLE_PRODUCTS = "products";
     private static final String KEY_PRODUCT_ID = "productId";
+    private static final String KEY_PRODUCT_IMAGE = "productImage";
     private static final String KEY_PRODUCT_NAME = "productName";
     private static final String KEY_PRICE = "price";
     private static final String KEY_QUANTITY = "quantity";
@@ -88,6 +90,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_PRODUCTS + " ("
                 + KEY_PRODUCT_ID + " INTEGER PRIMARY KEY,"
+                + KEY_PRODUCT_IMAGE + " BLOB,"
                 + KEY_PRODUCT_NAME + " TEXT,"
                 + KEY_PRICE + " INTEGER,"
                 + KEY_QUANTITY + " INTEGER,"
@@ -131,7 +134,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    //add new Clerk ot DB
+    //add new Clerk to DB
     public void addClerk(ClerkModel customer) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -140,6 +143,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(KEY_EMPLOYEE_PASSWORD, customer.getPassword());
         values.put(KEY_EMPLOYEE_FIRST_NAME, customer.getFirstName());
         values.put(KEY_EMPLOYEE_LAST_NAME, customer.getLastName());
+
+        db.insert(TABLE_CLERKS, null, values);
+        db.close();
+    }
+
+    //add new Product ot DB
+    public void addProduct(ProductModel product){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_PRODUCT_IMAGE, product.getImage());
+        values.put(KEY_PRODUCT_NAME, product.getProductName());
+        values.put(KEY_CATEGORY, product.getCategory());
+        values.put(KEY_PRICE, product.getPrice());
+        values.put(KEY_QUANTITY, product.getQuantity());
 
         db.insert(TABLE_CLERKS, null, values);
         db.close();

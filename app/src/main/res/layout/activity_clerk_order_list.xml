@@ -18,16 +18,12 @@
             android:layout_marginLeft="90dp"
             android:text="@string/LabelPlaced_orders" />
 
-        <Button
-            android:id="@+id/buttonCancel"
-            style="@style/ButtonLogout"
-            android:text="@string/buttonLogout"
-            android:onClick="onLogoutPressed"/>
     </LinearLayout>
 
 
     <android.support.v7.widget.RecyclerView
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="20dp"
         android:id="@+id/recyclerViewOrdersClerk"
         style="@style/ListView" />

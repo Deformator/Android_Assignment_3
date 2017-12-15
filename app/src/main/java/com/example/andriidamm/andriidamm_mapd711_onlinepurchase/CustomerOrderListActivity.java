@@ -61,10 +61,6 @@ public class CustomerOrderListActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void onLogoutPressed(View view) {
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
