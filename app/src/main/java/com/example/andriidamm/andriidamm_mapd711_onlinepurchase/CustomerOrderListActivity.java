@@ -36,6 +36,16 @@ public class CustomerOrderListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         orders.add(new OrderModel(1, 100));
+        orders.add(new OrderModel(2, 200));
+        orders.add(new OrderModel(1233, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
+        orders.add(new OrderModel(3, 300));
 
 
         adapter = new CustomerOrderListAdapter(this, orders);

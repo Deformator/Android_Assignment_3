@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,11 +8,11 @@
     tools:context="com.example.andriidamm.andriidamm_mapd711_onlinepurchase.LoginActivity"
     style="@style/Background">
 
-    <TextView
-        android:id="@+id/textViewMainLabel"
-        android:text="@string/loginLabel"
-        android:paddingTop="70dp"
-        style="@style/Title"/>
+    <ImageView
+        android:layout_width="177dp"
+        android:layout_height="177dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/main_logo" />
 
     <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
         android:id="@+id/segmentedControl"
@@ -51,7 +52,8 @@
         android:layout_gravity="center"
         android:hint="@string/passwordHint"
         android:inputType="textPassword"
-        android:ems="12"/>
+        android:ems="12"
+        />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -59,8 +61,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:onClick="onLoginPressed"
-        android:text="@string/buttonLogin" />
+        android:text="@string/buttonLogin"
+        android:background = "@drawable/rounded_button"/>
 
     <Button
         android:id="@+id/buttonRegistration"
@@ -68,6 +72,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="onRegistrationPressed"
-        android:text="@string/buttonRegistration" />
+        android:text="@string/buttonRegistration"
+        android:background = "@drawable/rounded_button"
+        />
 
 </LinearLayout>

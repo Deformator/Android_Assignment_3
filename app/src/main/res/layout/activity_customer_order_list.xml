@@ -25,9 +25,12 @@
             android:onClick="onLogoutPressed"/>
     </LinearLayout>
 
-
+    <!--<include layout="@layout/customer_cell"></include>-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewOrdersCustomer"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
         style="@style/ListView" />
 
     <LinearLayout

@@ -3,7 +3,8 @@
     style="@style/Background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:weightSum="8">
 
 
     <TextView
@@ -13,13 +14,14 @@
         android:layout_weight="2"
         android:paddingLeft="10dp"
         android:textSize="20sp"
+
         android:text="Order#" />
 
     <TextView
         android:id="@+id/textViewOrderNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:text="14"
         android:paddingLeft="5dp"
         android:textSize="20sp"
@@ -31,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:text="Price:"
-        android:layout_marginLeft="25dp"
+        android:paddingLeft="5dp"
         android:textSize="20sp"
         />
 
@@ -39,7 +41,7 @@
         android:id="@+id/textViewPriceNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:text="1200"
         android:textStyle="bold" />
 
@@ -48,6 +50,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Edit"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:text="Edit" />
+
+    <Button
+        android:id="@+id/buttonTakeOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Take" />
+
 </LinearLayout>

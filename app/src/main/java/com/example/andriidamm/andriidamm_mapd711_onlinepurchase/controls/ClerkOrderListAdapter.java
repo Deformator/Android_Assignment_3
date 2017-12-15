@@ -17,12 +17,12 @@ import java.util.List;
  * Created by andriidamm on 2017-12-14.
  */
 
-public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrderListAdapter.OrderViewHolder>{
+public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAdapter.OrderViewHolder>{
 
     private Context mCtx;
     private List<OrderModel> orderList;
 
-    public CustomerOrderListAdapter(Context mCtx, List<OrderModel> orderList) {
+    public ClerkOrderListAdapter(Context mCtx, List<OrderModel> orderList) {
         this.mCtx = mCtx;
         this.orderList = orderList;
     }
@@ -30,9 +30,9 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
     @Override
     public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.customer_cell, null);
+        View view = inflater.inflate(R.layout.clerk_cell, null);
 
-        return new OrderViewHolder(view);
+        return new ClerkOrderListAdapter.OrderViewHolder(view);
     }
 
     @Override
@@ -41,9 +41,6 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
 
         holder.textViewOrderNumber.setText(String.valueOf(order.getOrderId()));
         holder.textViewPriceNumber.setText(String.valueOf(order.getPrice()));
-
-
-
     }
 
     @Override
@@ -54,7 +51,7 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
     class OrderViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewOrder, textViewOrderNumber, textViewPrice, textViewPriceNumber;
-        Button buttonEditOrder;
+        Button buttonEditOrder, buttonTakeOrder;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
@@ -64,7 +61,8 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             textViewPriceNumber = itemView.findViewById(R.id.textViewPriceNumber);
             buttonEditOrder = itemView.findViewById(R.id.buttonEditOrder);
+            buttonTakeOrder = itemView.findViewById(R.id.buttonTakeOrder);
+
         }
     }
-
 }

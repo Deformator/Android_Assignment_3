@@ -2,6 +2,7 @@ package com.example.andriidamm.andriidamm_mapd711_onlinepurchase;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class PlaceAnOrderActivity extends AppCompatActivity {
 
@@ -9,5 +10,8 @@ public class PlaceAnOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_an_order);
+    }
+
+    public void onSubmitPressed(View view) {
     }
 }
