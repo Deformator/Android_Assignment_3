@@ -19,10 +19,13 @@
             android:text="@string/textViewYour_orders" />
 
         <Button
-            android:id="@+id/buttonCancel"
-            style="@style/ButtonLogout"
-            android:text="@string/buttonLogout"
-            android:onClick="onLogoutPressed"/>
+            android:id="@+id/buttonPlaceAnOrder"
+            style="@style/ButtonReg"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@drawable/plus_button"
+            android:onClick="onPlaceAnOrderPressed" />
+
     </LinearLayout>
 
     <!--<include layout="@layout/customer_cell"></include>-->
@@ -40,13 +43,5 @@
 
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonPlaceAnOrder"
-        style="@style/ButtonReg"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="onPlaceAnOrderPressed"
-        android:text="@string/buttonPlace_a_new_order" />
 
 </LinearLayout>

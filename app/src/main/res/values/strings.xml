@@ -23,6 +23,7 @@
 
     <string name="product_prompt">Choose a product type</string>
     <string name="LabelPlaced_orders">Placed Orders</string>
+    <string name="menuItem_logout">Logout</string>
 
     <string-array name="product_type_arrays">
         <item>Malaysia</item>

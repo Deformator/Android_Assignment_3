@@ -29,8 +29,7 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
 
     @Override
     public OrderViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.customer_cell, null);
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.customer_cell, parent, false);
 
         return new OrderViewHolder(view);
     }

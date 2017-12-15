@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.CustomerOrderListAdapter;
@@ -18,6 +20,7 @@ public class CustomerOrderListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     CustomerOrderListAdapter adapter;
+    SharedPreferences mySettings;
 
     List<OrderModel> orders;
 
@@ -26,8 +29,9 @@ public class CustomerOrderListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order_list);
 
-        SharedPreferences mySettings = getSharedPreferences(RegistrationActivity.PREFERENCES_FILE_NAME, 0);
-        String userName = mySettings.getString(RegistrationActivity.USERNAME, null);
+        mySettings = getSharedPreferences(RegistrationActivity.PREFERENCES_FILE_NAME, 0);
+        String userNameFromRegistration = mySettings.getString(RegistrationActivity.USERNAME, null);
+        String userNameFromLogin = mySettings.getString(LoginActivity.USERNAME, null);
 
         orders = new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewOrdersCustomer);
@@ -37,7 +41,7 @@ public class CustomerOrderListActivity extends AppCompatActivity {
 
         orders.add(new OrderModel(1, 100));
         orders.add(new OrderModel(2, 200));
-        orders.add(new OrderModel(1233, 300));
+        orders.add(new OrderModel(12, 300));
         orders.add(new OrderModel(3, 300));
         orders.add(new OrderModel(3, 300));
         orders.add(new OrderModel(3, 300));
@@ -58,7 +62,25 @@ public class CustomerOrderListActivity extends AppCompatActivity {
     }
 
     public void onLogoutPressed(View view) {
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        SharedPreferences.Editor editor = mySettings.edit();
+        editor.clear();
+        editor.apply();
+        finish();
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
+
+        return true;
+
     }
 }
