@@ -1,6 +1,7 @@
 package com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,21 +9,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.ClerkOrderDetailsActivity;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.R;
-import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.OrderModel;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.Order;
 
 import java.util.List;
 
+import static com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.CustomerOrderListAdapter.KEY_ORDER_ID;
+
 /**
- * Created by andriidamm on 2017-12-14.
+ * Adapter class for the list of orders displayed to the clerk.
  */
 
-public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAdapter.OrderViewHolder>{
+public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAdapter.OrderViewHolder> {
 
     private Context mCtx;
-    private List<OrderModel> orderList;
+    private List<Order> orderList;
 
-    public ClerkOrderListAdapter(Context mCtx, List<OrderModel> orderList) {
+    public ClerkOrderListAdapter(Context mCtx, List<Order> orderList) {
         this.mCtx = mCtx;
         this.orderList = orderList;
     }
@@ -37,7 +41,7 @@ public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAd
 
     @Override
     public void onBindViewHolder(OrderViewHolder holder, int position) {
-        OrderModel order = orderList.get(position);
+        Order order = orderList.get(position);
 
         holder.textViewOrderNumber.setText(String.valueOf(order.getOrderId()));
         holder.textViewPriceNumber.setText(String.valueOf(order.getPrice()));
@@ -51,7 +55,7 @@ public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAd
     class OrderViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewOrder, textViewOrderNumber, textViewPrice, textViewPriceNumber;
-        Button buttonTakeOrder;
+        Button buttonLookOrder;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
@@ -60,8 +64,16 @@ public class ClerkOrderListAdapter extends RecyclerView.Adapter<ClerkOrderListAd
             textViewOrderNumber = itemView.findViewById(R.id.textViewOrderNumber);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             textViewPriceNumber = itemView.findViewById(R.id.textViewPriceNumber);
-            buttonTakeOrder = itemView.findViewById(R.id.buttonLookOrder);
+            buttonLookOrder = itemView.findViewById(R.id.buttonLookOrder);
 
+            buttonLookOrder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mCtx, ClerkOrderDetailsActivity.class);
+                    intent.putExtra(KEY_ORDER_ID, orderList.get(ClerkOrderListAdapter.OrderViewHolder.this.getLayoutPosition()).getOrderId());
+                    mCtx.startActivity(intent);
+                }
+            });
         }
     }
 }

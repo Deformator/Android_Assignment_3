@@ -11,46 +11,37 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.CustomerOrderListAdapter;
-import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.OrderModel;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.DataBaseHelper;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.Order;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This activity displays the list of orders placed by the customer.
+ */
 public class CustomerOrderListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     CustomerOrderListAdapter adapter;
     SharedPreferences mySettings;
+    DataBaseHelper dataBaseHelper;
 
-    List<OrderModel> orders;
+    List<Order> orders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order_list);
 
-        mySettings = getSharedPreferences(RegistrationActivity.PREFERENCES_FILE_NAME, 0);
-        String userNameFromRegistration = mySettings.getString(RegistrationActivity.USERNAME, null);
-        String userNameFromLogin = mySettings.getString(LoginActivity.USERNAME, null);
+        dataBaseHelper = new DataBaseHelper(this);
+        mySettings = getSharedPreferences(RegistrationActivity.PREFERENCES_FILE_NAME, MODE_PRIVATE);
 
-        orders = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewOrdersCustomer);
+        recyclerView = findViewById(R.id.recyclerViewOrdersCustomer);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        orders.add(new OrderModel(1, 100));
-        orders.add(new OrderModel(2, 200));
-        orders.add(new OrderModel(12, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-
+        orders = dataBaseHelper.getOrdersByCustomerId(mySettings.getString(LoginActivity.USERNAME_CUSTOMER, null));
 
         adapter = new CustomerOrderListAdapter(this, orders);
         recyclerView.setAdapter(adapter);
@@ -69,14 +60,15 @@ public class CustomerOrderListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        SharedPreferences.Editor editor = mySettings.edit();
-        editor.clear();
-        editor.apply();
-        finish();
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
+        if (item.getItemId() == R.id.menu_logout) {
+            SharedPreferences.Editor editor = mySettings.edit();
+            editor.remove(LoginActivity.USERNAME_CUSTOMER);
+            editor.apply();
+            finish();
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+        }
 
         return true;
-
     }
 }

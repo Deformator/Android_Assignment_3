@@ -8,50 +8,38 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.ClerkOrderListAdapter;
-import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.OrderModel;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.DataBaseHelper;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This activity displays the list of orders to a clerk.
+ */
 public class ClerkOrderListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ClerkOrderListAdapter adapter;
 
-    List<OrderModel> orders;
+    List<Order> orders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clerk_order_list);
 
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
+
         orders = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerViewOrdersClerk);
+        recyclerView = findViewById(R.id.recyclerViewOrdersClerk);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        orders.add(new OrderModel(1, 100));
-        orders.add(new OrderModel(2, 200));
-        orders.add(new OrderModel(1233, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-        orders.add(new OrderModel(3, 300));
-
-
+        orders = dataBaseHelper.getAllOrders();
         adapter = new ClerkOrderListAdapter(this, orders);
         recyclerView.setAdapter(adapter);
     }
@@ -64,8 +52,14 @@ public class ClerkOrderListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
+        if (item.getItemId() == R.id.menu_logout) {
+            SharedPreferences mySettings = getSharedPreferences(RegistrationActivity.PREFERENCES_FILE_NAME, MODE_PRIVATE);
+            SharedPreferences.Editor editor = mySettings.edit();
+            editor.remove(LoginActivity.USERNAME_CLERK);
+            editor.apply();
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+        }
 
         return true;
 

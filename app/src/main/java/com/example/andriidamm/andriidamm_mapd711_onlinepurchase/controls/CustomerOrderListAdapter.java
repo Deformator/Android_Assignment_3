@@ -1,6 +1,7 @@
 package com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,21 +9,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.CustomerOrderDetailsActivity;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.R;
-import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.OrderModel;
+import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.models.Order;
 
 import java.util.List;
 
 /**
- * Created by andriidamm on 2017-12-14.
+ * This is the adapter class for showing list of orders to the customers.
  */
 
 public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrderListAdapter.OrderViewHolder>{
 
-    private Context mCtx;
-    private List<OrderModel> orderList;
+    public static final String KEY_ORDER_ID = "KEY_ORDER_ID";
 
-    public CustomerOrderListAdapter(Context mCtx, List<OrderModel> orderList) {
+    private Context mCtx;
+    private List<Order> orderList;
+
+    public CustomerOrderListAdapter(Context mCtx, List<Order> orderList) {
         this.mCtx = mCtx;
         this.orderList = orderList;
     }
@@ -36,12 +40,10 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
 
     @Override
     public void onBindViewHolder(OrderViewHolder holder, int position) {
-        OrderModel order = orderList.get(position);
+        Order order = orderList.get(position);
 
         holder.textViewOrderNumber.setText(String.valueOf(order.getOrderId()));
         holder.textViewPriceNumber.setText(String.valueOf(order.getPrice()));
-
-
 
     }
 
@@ -63,6 +65,15 @@ public class CustomerOrderListAdapter extends RecyclerView.Adapter<CustomerOrder
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
             textViewPriceNumber = itemView.findViewById(R.id.textViewPriceNumber);
             buttonEditOrder = itemView.findViewById(R.id.buttonEditOrder);
+
+            buttonEditOrder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mCtx, CustomerOrderDetailsActivity.class);
+                    intent.putExtra(KEY_ORDER_ID, orderList.get(OrderViewHolder.this.getLayoutPosition()).getOrderId());
+                    mCtx.startActivity(intent);
+                }
+            });
         }
     }
 

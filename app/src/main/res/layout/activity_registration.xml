@@ -126,16 +126,16 @@
         <Button
             android:id="@+id/buttonSubmit"
             style="@style/ButtonReg"
+            android:background="@drawable/rounded_button"
             android:onClick="onSubmitPressed"
-            android:text="@string/buttonSubmit"
-            android:background = "@drawable/rounded_button"/>
+            android:text="@string/buttonSubmit" />
 
         <Button
             android:id="@+id/buttonCancel"
             style="@style/ButtonReg"
+            android:background="@drawable/rounded_button"
             android:onClick="onCancelPressed"
-            android:text="@string/buttonCancel"
-            android:background = "@drawable/rounded_button"/>
+            android:text="@string/buttonCancel" />
     </LinearLayout>
 
 

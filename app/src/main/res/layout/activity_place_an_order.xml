@@ -7,39 +7,41 @@
     android:orientation="vertical"
     tools:context="com.example.andriidamm.andriidamm_mapd711_onlinepurchase.PlaceAnOrderActivity">
 
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewProducts"
-        android:layout_height="530dp"
+        style="@style/ListView"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        style="@style/ListView" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonSubmitAnOrder"
-            style="@style/ButtonReg"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
             android:onClick="onSubmitPressed"
-            android:text="Submit"
-            android:background = "@drawable/rounded_button"/>
+            android:text="Submit" />
 
         <Button
             android:id="@+id/buttonCancelAnOrder"
-            style="@style/ButtonReg"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
             android:onClick="onCancelPressed"
-            android:text="Cancel"
-            android:background = "@drawable/rounded_button"/>
+            android:text="Cancel" />
     </LinearLayout>
-
-
 
 </LinearLayout>

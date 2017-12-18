@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity"
-            android:label="Registration"/>
-        <activity android:name=".CustomerOrderListActivity"
-            android:label="List of orders"/>
-        <activity android:name=".PlaceAnOrderActivity"
-            android:label="New Order"/>
-        <activity android:name=".ClerkOrderListActivity"
-            android:label="Placed Orders"></activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:label="Registration" />
+        <activity
+            android:name=".CustomerOrderListActivity"
+            android:label="Order History" />
+        <activity
+            android:name=".PlaceAnOrderActivity"
+            android:label="New Order" />
+        <activity
+            android:name=".ClerkOrderListActivity"
+            android:label="Placed Orders" />
+        <activity android:name=".CustomerOrderDetailsActivity"
+            android:label="@string/order_details"/>
+        <activity android:name=".ClerkOrderDetailsActivity"
+            android:label="@string/order_details"/>
     </application>
 
 </manifest>

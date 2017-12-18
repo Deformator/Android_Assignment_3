@@ -73,10 +73,9 @@
 
     <!-- List View -->
     <style name="ListView">
-        <item name="android:layout_height">430dp</item>
-        <item name="android:layout_width">match_parent</item>
+        <!--<item name="android:layout_width">match_parent</item>-->
         <item name="android:headerDividersEnabled">false</item>
-        <item name="android:visibility">visible</item>
+        <!--<item name="android:visibility">visible</item>-->
     </style>
 
     <!-- Product name label -->
