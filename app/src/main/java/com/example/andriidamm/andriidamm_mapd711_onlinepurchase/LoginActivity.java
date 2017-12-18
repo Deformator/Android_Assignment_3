@@ -91,16 +91,16 @@ public class LoginActivity extends AppCompatActivity {
      */
     private void addProducts() {
         List<Product> products = new ArrayList<>();
-        products.add(new Product("apricot", "Apricot", "fruit", 50));
-        products.add(new Product("banana", "Banana", "fruit", 30));
-        products.add(new Product("broccoli", "Broccoli", "vegetables", 20));
-        products.add(new Product("cabbage", "Cabbage", "vegetables", 10));
-        products.add(new Product("carrot", "Carrot", "vegetables", 150));
-        products.add(new Product("cherry", "Cherry", "fruit", 80));
-        products.add(new Product("kiwi", "Kiwi", "fruit", 120));
-        products.add(new Product("onion", "Onion", "vegetables", 35));
-        products.add(new Product("potato", "Potato", "vegetables", 12));
-        products.add(new Product("strawberry", "Strawberry", "fruit", 75));
+        products.add(new Product("apricot", "Apricot", "Fruit", 50));
+        products.add(new Product("banana", "Banana", "Fruit", 30));
+        products.add(new Product("broccoli", "Broccoli", "Vegetables", 20));
+        products.add(new Product("cabbage", "Cabbage", "Vegetables", 10));
+        products.add(new Product("carrot", "Carrot", "Vegetables", 150));
+        products.add(new Product("cherry", "Cherry", "Fruit", 80));
+        products.add(new Product("kiwi", "Kiwi", "Fruit", 120));
+        products.add(new Product("onion", "Onion", "Vegetables", 35));
+        products.add(new Product("potato", "Potato", "Vegetables", 12));
+        products.add(new Product("strawberry", "Strawberry", "Fruit", 75));
 
         db.addProducts(products);
     }
