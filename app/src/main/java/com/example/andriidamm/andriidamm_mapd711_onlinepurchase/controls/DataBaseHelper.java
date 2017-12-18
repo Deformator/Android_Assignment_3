@@ -180,7 +180,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put(KEY_ORDER_CUSTOMER_ID, order.getCustomerId());
-        values.put(KEY_ORDER_PRODUCT_IDS, order.getProductIds());
+        values.put(KEY_ORDER_PRODUCT_IDS, order.getProductNames());
         values.put(KEY_ORDER_PRICE, order.getPrice());
         values.put(KEY_ORDER_STATUS, order.getStatus());
 
@@ -303,8 +303,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     /**
      * Get details of an order by order Id.
-     * @param orderId
-     * @return
      */
     public Order getOrderDetailsById(int orderId) {
         SQLiteDatabase db = this.getReadableDatabase();

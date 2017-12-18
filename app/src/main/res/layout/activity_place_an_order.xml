@@ -25,22 +25,22 @@
             android:id="@+id/buttonSubmitAnOrder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_button_white"
             android:onClick="onSubmitPressed"
+            android:textColor="@color/colorPrimary"
             android:text="Submit" />
 
         <Button
             android:id="@+id/buttonCancelAnOrder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_button_white"
             android:onClick="onCancelPressed"
+            android:textColor="@color/colorPrimary"
             android:text="Cancel" />
     </LinearLayout>
 

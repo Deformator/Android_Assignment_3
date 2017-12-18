@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Customer Id :"
+            android:text="Customer :"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -61,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="Product Ids :"
+            android:text="Products :"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -184,7 +184,8 @@
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             android:onClick="onCancelOrderClicked"
-            android:background = "@drawable/rounded_button"
+            android:background = "@drawable/rounded_button_primary"
+            android:textColor="@android:color/white"
             android:text="Cancel Order"/>
 
         <Button
@@ -193,7 +194,8 @@
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:onClick="onBackClicked"
-            android:background = "@drawable/rounded_button"
+            android:background = "@drawable/rounded_button_primary"
+            android:textColor="@android:color/white"
             android:text="Back"/>
 
     </LinearLayout>

@@ -55,6 +55,12 @@
         android:ems="12"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
@@ -64,7 +70,9 @@
         android:layout_marginBottom="10dp"
         android:onClick="onLoginPressed"
         android:text="@string/buttonLogin"
-        android:background = "@drawable/rounded_button"/>
+        android:textColor="@android:color/white"
+        android:layout_marginRight="10dp"
+        android:background = "@drawable/rounded_button_primary" />
 
     <Button
         android:id="@+id/buttonRegistration"
@@ -73,7 +81,11 @@
         android:layout_gravity="center"
         android:onClick="onRegistrationPressed"
         android:text="@string/buttonRegistration"
-        android:background = "@drawable/rounded_button"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="10dp"
+        android:background = "@drawable/rounded_button_primary"
         />
+
+    </LinearLayout>
 
 </LinearLayout>

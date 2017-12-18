@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.ClerkOrderListAdapter;
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.DataBaseHelper;
@@ -42,6 +44,17 @@ public class ClerkOrderListActivity extends AppCompatActivity {
         orders = dataBaseHelper.getAllOrders();
         adapter = new ClerkOrderListAdapter(this, orders);
         recyclerView.setAdapter(adapter);
+
+        TextView emptyView = findViewById(R.id.empty_view);
+        // If there are no orders to show, display the empty list message.
+        if (orders.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+        }
+        else {
+            recyclerView.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
+        }
     }
 
     @Override

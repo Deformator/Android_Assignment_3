@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.andriidamm.andriidamm_mapd711_onlinepurchase.controls.DataBaseHelper;
@@ -16,6 +17,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public static final String PREFERENCES_FILE_NAME = "MyAppPreferences";
 
+    byte userType;
+
     String userName;
     String password;
     String firstName;
@@ -25,11 +28,26 @@ public class RegistrationActivity extends AppCompatActivity {
 
     DataBaseHelper db;
 
+    TextView tvRegistrationTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         db = new DataBaseHelper(this);
+
+        tvRegistrationTitle = findViewById(R.id.textViewRegistration);
+        userType = getIntent().getByteExtra(LoginActivity.USER_TYPE, (byte) 0);
+
+        if (userType == LoginActivity.USER_CUSTOMER) {
+            tvRegistrationTitle.setText(R.string.cust_registration);
+            findViewById(R.id.row_city).setVisibility(View.VISIBLE);
+            findViewById(R.id.row_postal_code).setVisibility(View.VISIBLE);
+        } else {
+            tvRegistrationTitle.setText(R.string.clerk_registration);
+            findViewById(R.id.row_city).setVisibility(View.GONE);
+            findViewById(R.id.row_postal_code).setVisibility(View.GONE);
+        }
     }
 
     public void onCancelPressed(View view) {
@@ -46,14 +64,18 @@ public class RegistrationActivity extends AppCompatActivity {
         city = ((EditText) findViewById(R.id.editTextCity)).getText().toString();
         postalCode = ((EditText) findViewById(R.id.editTextPostalCode)).getText().toString();
 
-        if (userName.length() == 0 || password.length() == 0 || firstName.length() == 0 || lastName.length() == 0 || city.length() == 0 || postalCode.length() == 0) {
+        if (userName.length() == 0 || password.length() == 0 || firstName.length() == 0 || lastName.length() == 0) {
             Toast.makeText(getApplicationContext(), "All fields are required",
                     Toast.LENGTH_LONG).show();
-
         } else {
-            byte userType = getIntent().getByteExtra(LoginActivity.USER_TYPE, (byte) 0);
 
             if (userType == LoginActivity.USER_CUSTOMER) {
+
+                if (city.length() == 0 || postalCode.length() == 0) {
+                    Toast.makeText(getApplicationContext(), "All fields are required",
+                            Toast.LENGTH_LONG).show();
+                }
+
                 if (db.isCustomerExisting(userName)) {
                     Toast.makeText(getApplicationContext(), "Customer name already exists, please chose another username",
                             Toast.LENGTH_LONG).show();

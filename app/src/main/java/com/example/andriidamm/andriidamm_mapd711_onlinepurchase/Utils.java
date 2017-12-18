@@ -10,9 +10,9 @@ public class Utils {
     private static String strSeparator = " , ";
 
     /**
-     * This method takes a list of integers and returns all the list elements in the form of a comma separated string.
+     * This method takes a list of strings and returns all the list elements in the form of a comma separated string.
      */
-    public static String convertArrayListToString(List<Integer> list) {
+    public static String convertArrayListToString(List<String> list) {
         String str = "";
         for (int i = 0; i < list.size(); i++) {
             str = str + list.get(i);

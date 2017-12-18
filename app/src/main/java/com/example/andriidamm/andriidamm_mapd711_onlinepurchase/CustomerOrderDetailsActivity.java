@@ -50,7 +50,7 @@ public class CustomerOrderDetailsActivity extends AppCompatActivity {
 
         tvOrderId.setText(String.valueOf(order.getOrderId()));
         tvCustomerId.setText(order.getCustomerId());
-        tvProductIds.setText(order.getProductIds());
+        tvProductIds.setText(order.getProductNames());
         tvEmployeeId.setText(TextUtils.equals(order.getEmployeeId(), null) ? "Not Assigned" : order.getEmployeeId());
         tvOrderDate.setText(order.getOrderDate());
         tvOrderPrice.setText(String.valueOf(order.getPrice()));

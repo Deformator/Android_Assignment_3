@@ -12,33 +12,28 @@ public class Order {
 
     private int orderId;
     private String customerId;
-    private String productIds;
+    private String productNames;
     private String employeeId;
     private String orderDate;
     private int price;
     private String status;
 
-    public Order(int orderId, String customerId, String productIds, String employeeId, String orderDate, int price, String status) {
+    public Order(int orderId, String customerId, String productNames, String employeeId, String orderDate, int price, String status) {
         this.orderId = orderId;
         this.customerId = customerId;
-        this.productIds = productIds;
+        this.productNames = productNames;
         this.employeeId = employeeId;
         this.orderDate = orderDate;
         this.price = price;
         this.status = status;
     }
 
-    public Order(String customerId, String productIds, String employeeId, int price, String status) {
+    public Order(String customerId, String productNames, String employeeId, int price, String status) {
         this.customerId = customerId;
-        this.productIds = productIds;
+        this.productNames = productNames;
         this.employeeId = employeeId;
         this.price = price;
         this.status = status;
-    }
-
-    public Order(int orderId, int price) {
-        this.orderId = orderId;
-        this.price = price;
     }
 
     public int getPrice() {
@@ -65,12 +60,12 @@ public class Order {
         this.customerId = customerId;
     }
 
-    public String getProductIds() {
-        return productIds;
+    public String getProductNames() {
+        return productNames;
     }
 
-    public void setProductIds(String productIds) {
-        this.productIds = productIds;
+    public void setProductNames(String productNames) {
+        this.productNames = productNames;
     }
 
     public String getEmployeeId() {

@@ -10,6 +10,7 @@
     <TextView
         android:id="@+id/textViewRegistration"
         style="@style/Title"
+        android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/labelRegistration" />
@@ -84,6 +85,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/row_city"
         style="@style/RegistrationRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,6 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/row_postal_code"
         style="@style/RegistrationRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,6 +120,11 @@
             android:inputType="textPostalAddress" />
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -126,14 +134,14 @@
         <Button
             android:id="@+id/buttonSubmit"
             style="@style/ButtonReg"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_primary"
             android:onClick="onSubmitPressed"
             android:text="@string/buttonSubmit" />
 
         <Button
             android:id="@+id/buttonCancel"
             style="@style/ButtonReg"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/rounded_button_primary"
             android:onClick="onCancelPressed"
             android:text="@string/buttonCancel" />
     </LinearLayout>

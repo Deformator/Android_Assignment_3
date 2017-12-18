@@ -51,25 +51,25 @@ public class PlaceAnOrderActivity extends AppCompatActivity {
         int totalOrderPrice = 0;
 
         // Find all ordered product ids and calculate total order price.
-        List<Integer> orderedProductIds = new ArrayList<>();
+        List<String> orderedProducts = new ArrayList<>();
         for (Product product: products) {
             if (product.getQuantity() > 0) {
                 totalOrderPrice += (product.getPrice() * product.getQuantity());
-                orderedProductIds.add(product.getProductId());
+                orderedProducts.add(product.getProductName());
             }
         }
 
-        if (orderedProductIds.size() == 0) {
+        if (orderedProducts.size() == 0) {
             Toast.makeText(this, "Please select atleast one product", Toast.LENGTH_LONG).show();
             return;
         }
 
         // Get customer user Id from shared preferences.
         SharedPreferences settingsFile = getSharedPreferences(PREFERENCES_FILE_NAME, 0);
-        String customerId = settingsFile.getString(LoginActivity.USERNAME_CUSTOMER, null);
+        String customerName = settingsFile.getString(LoginActivity.USERNAME_CUSTOMER, null);
 
         // Create a new order
-        Order newOrder = new Order(customerId, Utils.convertArrayListToString(orderedProductIds)
+        Order newOrder = new Order(customerName, Utils.convertArrayListToString(orderedProducts)
                 , null, totalOrderPrice, Order.OrderStatus.PENDING.toString());
         dataBaseHelper.addOrder(newOrder);
 
